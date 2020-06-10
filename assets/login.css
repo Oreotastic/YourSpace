@@ -1,0 +1,54 @@
+
+.login {
+  height: 50vh;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  width: 30vw;
+  border: 1px solid rgb(175, 175, 175);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(144, 144, 144, 0.685);
+}
+
+.login-container > form {
+  display: flex;
+  align-items: auto;
+  justify-items: auto;
+}
+
+.form-container {
+  margin: 40px auto;
+}
+
+.form-container > button {
+  margin: 10px;
+}
+
+.credentials-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.credential {
+  margin: 10px;
+}
+
+.credential > p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+/* Inputs */ 
+.credential > input {
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(175, 175, 175);
+}
