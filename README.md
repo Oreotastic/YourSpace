@@ -5,7 +5,7 @@ Im building this to further improve my understanding of the core concepts of web
 
 # Dependencies
 *Core:
--[Node.js](https://nodejs.org/en/) 
--[Express.js](https://expressjs.com/)
--[React.js](https://reactjs.org/) 
--[PostgreSQL](https://www.postgresql.org/)
+- [Node.js](https://nodejs.org/en/) 
+- [Express.js](https://expressjs.com/)
+- [React.js](https://reactjs.org/) 
+- [PostgreSQL](https://www.postgresql.org/)
