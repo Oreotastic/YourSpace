@@ -4,7 +4,7 @@ YourSpace is a project that aims to create a modern myspace with reddit-like ele
 Im building this to further improve my understanding of the core concepts of web design and development, as well as create something I truly feel passionate about.
 
 # Dependencies
-*Core*:
+***Core***:
 - [Node.js](https://nodejs.org/en/) 
 - [Express.js](https://expressjs.com/)
 - [React.js](https://reactjs.org/) 
