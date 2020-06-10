@@ -12,6 +12,7 @@
 
 .login-container {
   width: 30vw;
+  min-width: 250px;
   border: 1px solid rgb(175, 175, 175);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(144, 144, 144, 0.685);

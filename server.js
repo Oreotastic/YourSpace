@@ -4,6 +4,7 @@ const db = require('./database/db')
 
 const app = express()
 
+app.use(express.json())
 app.use('/dist', express.static(path.join(__dirname, 'dist')))
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
 app.use('/src/assets', express.static(path.join(__dirname, 'assets')))
@@ -16,6 +17,13 @@ app.get('/api/users', (req, res, next) => {
   db.users.getUsers()
     .then(response => res.send(response))
     .catch(next)
+})
+
+app.get('/route/signin', (req, res, next) => {
+})
+
+app.get('*', (req, res, next) => {
+  res.redirect('/')
 })
 
 const port = process.env.PORT || 3000
