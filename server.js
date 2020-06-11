@@ -1,13 +1,16 @@
+const db = require('./database/db')
 const express = require('express')
 const path = require('path')
-const db = require('./database/db')
 
 const app = express()
 
+app.use(express.json())
 app.use('/dist', express.static(path.join(__dirname, 'dist')))
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
 app.use('/src/assets', express.static(path.join(__dirname, 'assets')))
 
+
+//Routes
 app.get('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
@@ -18,8 +21,24 @@ app.get('/api/users', (req, res, next) => {
     .catch(next)
 })
 
+app.post('/route/signin', (req, res, next) => {
+  const username = req.body.username
+  const password = req.body.password
+  db.login.signIn(username, password)
+    .then(response => console.log(response))
+})
+
+app.post('/route/signup', (req, res, next) => {
+
+})
+
+app.get('*', (req, res, next) => {
+  res.redirect('/')
+})
+
 const port = process.env.PORT || 3000
 
+//initializes database
 db.sync().then(()=> {
   app.listen(port, ()=>{
     console.log(`listening on port ${port}`)

@@ -1,5 +1,6 @@
 //Database Methods 
 const client = require('./client').client
+const login = require('./methods/login')
 const users = require('./methods/users')
 
 const sync = async() => {
@@ -13,18 +14,24 @@ const sync = async() => {
       id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
       googleID VARCHAR UNIQUE,
       facebookID VARCHAR UNIQUE,
+      username VARCHAR UNIQUE NOT NULL,
       name VARCHAR,
       hash VARCHAR,
-      role VARCHAR
+      role VARCHAR NOT NULL
     );
-
-    INSERT INTO users(name, hash, role) VALUES('AdminHunt', 'admin123abc', 'ADMIN');
   `
-  
+
   await client.query(sql)
+  await login.signUp({
+    username: 'AdminHunt',
+    name: 'Hunter',
+    password: 'password',
+    role: 'ADMIN'
+  })
 }
 
 module.exports = {
   sync,
+  login,
   users
 }
