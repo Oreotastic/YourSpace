@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {Button} from '@material-ui/core'
+import axios from 'axios'
 
 const Login = () => {
 
@@ -8,8 +9,8 @@ const Login = () => {
 
   const onSubmit = (el) => {
     el.preventDefault()
-    console.log(username)
-    console.log(password)
+    axios.post('/route/signin', {username: username, password: password})
+      .then(response => console.log(response))
   }
 
   return(
@@ -24,7 +25,7 @@ const Login = () => {
               </div>
               <div className="credential">
                 <p>Password</p>
-                <input type="text" value={password} placeholder="password" onChange={(el) => setPassword(el.target.value)}/>
+                <input type="password" value={password} placeholder="password" onChange={(el) => setPassword(el.target.value)}/>
               </div>
             </div>
             <Button type="submit" color="primary" variant="contained">Submit</Button>
