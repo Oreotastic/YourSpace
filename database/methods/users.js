@@ -17,8 +17,8 @@ module.exports = {
     return response.rows[0]
   },
   createUser: async(user, hash) => {
-    const sql = `INSERT INTO users(username, facebookID, googleID, name, hash, role) VALUES ($1, $2, $3, $4, $5, $6) returning *`
-    const response = await client.query(sql, [user.username, user.googleID, user.facebookID, user.name, hash, user.role])
+    const sql = `INSERT INTO users(username, facebookID, googleID, firstName, lastName, hash) VALUES ($1, $2, $3, $4, $5, $6) returning *`
+    const response = await client.query(sql, [user.username, user.googleID, user.facebookID, user.firstName, user.lastName, hash])
     return response.rows[0]
   }
 }

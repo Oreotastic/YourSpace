@@ -7,9 +7,16 @@ import {
 } from 'react-router-dom'
 
 import Home from './Components/Home'
-import Login from './Components/Login'
+import Login from './Components/Forms/Login'
+import Signup from './Components/Forms/Signup'
+import ProfilePic from './Components/Forms/ProfilePic'
 
 const App = () => {
+
+  const [first, setFirst] = useState('')
+  const [last, setLast] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   return(
     <div className="app">
@@ -23,6 +30,9 @@ const App = () => {
               <li>
                 <Link to="/login">Login</Link>
               </li>
+              <li>
+                <Link to="/signup">Register</Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -31,7 +41,13 @@ const App = () => {
             <Home />
           </Route>
           <Route exact path="/login">
-            <Login />
+            <Login username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>
+          </Route>
+          <Route exact path="/signup">
+            <Signup username={username} setUsername={setUsername} password={password} setPassword={setPassword} first={first} setFirst={setFirst} last={last} setLast={setLast} />
+          </Route>
+          <Route exact path="/signup-profile">
+            <ProfilePic username={username} setUsername={setUsername} password={password} setPassword={setPassword} first={first} setFirst={setFirst} last={last} setLast={setLast} />
           </Route>
         </Switch>
       </Router>

@@ -29,7 +29,17 @@ app.post('/route/signin', (req, res, next) => {
 })
 
 app.post('/route/signup', (req, res, next) => {
-
+  const user = {
+    username: req.body.username,
+    facebookID: req.body.facebookID,
+    googleID: req.body.googleID,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    password: req.body.password
+  }
+  db.login.signUp(user)
+    .then(response => res.send(response))
+    .catch(next)
 })
 
 app.get('*', (req, res, next) => {

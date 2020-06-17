@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import {Button} from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import axios from 'axios'
 
-const Login = () => {
-
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+const Login = ({ username, setUsername, password, setPassword }) => {
 
   const onSubmit = (el) => {
     el.preventDefault()
@@ -14,10 +11,10 @@ const Login = () => {
   }
 
   return(
-    <div className="login">
-      <div className="login-container">
+    <div className="forms-container">
+      <div className="forms">
         <form onSubmit={onSubmit}>
-          <div className="form-container">
+          <div className="form">
             <div className="credentials-container">
               <div className="credential">
                 <p>Username</p>
@@ -28,7 +25,7 @@ const Login = () => {
                 <input type="password" value={password} placeholder="password" onChange={(el) => setPassword(el.target.value)}/>
               </div>
             </div>
-            <Button type="submit" color="primary" variant="contained">Submit</Button>
+            <Button type="submit" color="primary" variant="contained">Sign In</Button>
           </div>
         </form>
       </div>

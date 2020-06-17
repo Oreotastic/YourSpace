@@ -15,16 +15,18 @@ const sync = async() => {
       googleID VARCHAR UNIQUE,
       facebookID VARCHAR UNIQUE,
       username VARCHAR UNIQUE NOT NULL,
-      name VARCHAR,
+      firstName VARCHAR,
+      lastName VARCHAR,
       hash VARCHAR,
-      role VARCHAR NOT NULL
+      role VARCHAR DEFAULT 'USER'
     );
   `
 
   await client.query(sql)
   await login.signUp({
     username: 'AdminHunt',
-    name: 'Hunter',
+    firstName: 'Hunter',
+    lastName: 'Oreair',
     password: 'password',
     role: 'ADMIN'
   })
