@@ -1,45 +1,24 @@
-const db = require('./database/db')
+//Third party dependencies
+const bodyParser = require('body-parser')
 const express = require('express')
 const path = require('path')
-
 const app = express()
 
-app.use(express.json())
+
+//dev made dependencies
+const db = require('./database/db')
+
+app.use(bodyParser.json())
 app.use('/dist', express.static(path.join(__dirname, 'dist')))
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
 app.use('/src/assets', express.static(path.join(__dirname, 'assets')))
 
-
 //Routes
+require('./routes/user')(app) //user routes
+require('./routes/upload')(app) //file routes
+
 app.get('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'index.html'))
-})
-
-app.get('/api/users', (req, res, next) => {
-  db.users.getUsers()
-    .then(response => res.send(response))
-    .catch(next)
-})
-
-app.post('/route/signin', (req, res, next) => {
-  const username = req.body.username
-  const password = req.body.password
-  db.login.signIn(username, password)
-    .then(response => console.log(response))
-})
-
-app.post('/route/signup', (req, res, next) => {
-  const user = {
-    username: req.body.username,
-    facebookID: req.body.facebookID,
-    googleID: req.body.googleID,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    password: req.body.password
-  }
-  db.login.signUp(user)
-    .then(response => res.send(response))
-    .catch(next)
 })
 
 app.get('*', (req, res, next) => {
