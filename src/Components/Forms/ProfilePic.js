@@ -14,7 +14,7 @@ const ProfilePic = ({ first, setFirst, last, setLast, username, setUsername, pas
       password: password,
       profilePic: profilePic
     }
-    const token = (await axios.post('/route/signup', user)).data
+    const token = (await axios.post('/route/v1/signup', user)).data
     console.log(token)
   }
   return (

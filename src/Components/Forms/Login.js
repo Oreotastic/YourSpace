@@ -6,7 +6,7 @@ const Login = ({ username, setUsername, password, setPassword }) => {
 
   const onSubmit = (el) => {
     el.preventDefault()
-    axios.post('/route/signin', {username: username, password: password})
+    axios.post('/route/v1/signin', {username: username, password: password})
       .then(response => console.log(response))
   }
 
