@@ -1,14 +1,12 @@
 //Third party dependencies
-const bodyParser = require('body-parser')
 const express = require('express')
 const path = require('path')
 const app = express()
 
-
 //dev made dependencies
 const db = require('./database/db')
 
-app.use(bodyParser.json())
+app.use(express.json())
 app.use('/dist', express.static(path.join(__dirname, 'dist')))
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
 app.use('/src/assets', express.static(path.join(__dirname, 'assets')))

@@ -9,7 +9,7 @@ module.exports = {
       sub: user.id,
       iat: new Date().getTime(), //current date
       exp: new Date().setDate(new Date().getDate() + 1) //1 day ahead of current date
-    }, keys.JWT_Secret.secret)
+    }, keys.JWT.secret)
     return token
   }
 }
