@@ -16,9 +16,10 @@ module.exports = {
   upload: multer({
     storage: multerS3({
       s3: s3,
+      acl: 'public-read',
       bucket: 'yourspaceoreo-bucket',
       metadata: function (req, file, cb) {
-        cb(null, {fieldName: 'TEST_META_DATA'});
+        cb(null, {fieldName: file.fieldname});
       },
       key: function (req, file, cb) {
         cb(null, Date.now().toString())
