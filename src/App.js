@@ -9,7 +9,7 @@ import {
 import Home from './Components/Home'
 import Login from './Components/Forms/Login'
 import Signup from './Components/Forms/Signup'
-import ProfilePic from './Components/Forms/ProfilePic'
+import ProfileConfig from './Components/Forms/ProfileConfig'
 
 const App = () => {
 
@@ -47,7 +47,7 @@ const App = () => {
             <Signup username={username} setUsername={setUsername} password={password} setPassword={setPassword} first={first} setFirst={setFirst} last={last} setLast={setLast} />
           </Route>
           <Route exact path="/signup-profile">
-            <ProfilePic username={username} setUsername={setUsername} password={password} setPassword={setPassword} first={first} setFirst={setFirst} last={last} setLast={setLast} />
+            <ProfileConfig username={username} setUsername={setUsername} password={password} setPassword={setPassword} first={first} setFirst={setFirst} last={last} setLast={setLast} />
           </Route>
         </Switch>
       </Router>

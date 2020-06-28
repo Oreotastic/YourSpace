@@ -6,6 +6,7 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -26,7 +27,7 @@
 }
 
 .form > a > button {
-  margin: 10px;
+  margin: 10px 0;
 }
 
 .form {
@@ -38,13 +39,22 @@
   grid-template-columns: 1fr;
 }
 
-.credential {
-  margin: 10px;
-}
-
 .credential > p {
   padding: 10px 0;
   margin: 0;
+}
+
+#genderSelector {
+  width: 305px;
+  font-size: 1em;
+  border: 1px solid rgb(169, 169, 169);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#genderSelector::after {
+  position: absolute;
+  border: 1px solid black;
 }
 
 /* Inputs */ 
